@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export const Login = () => {
   return (
@@ -53,12 +54,12 @@ export const Login = () => {
 
         <p className="text-center mt-6 text-gray-600">
           Chưa có tài khoản?{" "}
-          <a
-            href="#"
+          <Link
+            to="/signup"
             className="text-blue-600 hover:underline"
           >
             Đăng ký
-          </a>
+          </Link>
         </p>
       </div>
     </div>
