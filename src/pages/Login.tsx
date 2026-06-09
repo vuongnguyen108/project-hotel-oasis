@@ -3,8 +3,10 @@ import type { LoginPayload } from "../type/authen/auth.type"
 import { useState } from "react"
 import { loginApi } from "../services/auth.api"
 import toast from "react-hot-toast"
+import { useAuthStore } from "../store/useAuthStore"
 
 export const Login = () => {
+  const {setLogin} = useAuthStore();
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [formLogin, setFormLogin] = useState<LoginPayload>({
@@ -27,6 +29,8 @@ export const Login = () => {
       setLoading(true)
       const res = await loginApi(formLogin)
       console.log(res, 'resrse')
+      const { access_token, user } = res; 
+      setLogin(user, access_token)
       toast.success("Đăng nhập thành công!")
       
     } catch (error) {
