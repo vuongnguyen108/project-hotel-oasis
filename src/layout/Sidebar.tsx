@@ -11,14 +11,14 @@ const menus = [
 export const Sidebar = () => {
     return (
         <div className="h-screen bg-blue-800 w-64">
-            <h1 className="p-4 text-3xl font-bold">Admin</h1>
+            <h1 className="p-4 text-3xl font-bold text-white">Admin</h1>
             <nav className="flex flex-col gap-2 px-4">
                 {menus.map((menu) => (
                     <NavLink
                         key={menu.path}
                         to={menu.path}
                         className={({ isActive }) =>
-                            clsx("w-full text-left px-4 py-3 rounded-lg", isActive ? "bg-blue-600 text-white" : " hover:bg-gray-800  ")
+                            clsx("w-full text-left px-4 py-3 rounded-lg", isActive ? "bg-purple-800 text-white" : " hover:bg-blue-400 hover:text-white ")
                         }
                     >
                         {menu.label}

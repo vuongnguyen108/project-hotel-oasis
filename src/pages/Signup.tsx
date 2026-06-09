@@ -45,7 +45,7 @@ export const Signup = () => {
             <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
                 <h2 className="text-3xl font-bold text-center mb-6">Đăng ký</h2>
 
-                <form onClick={handleSubmit}>
+                <form>
                     {/* Fullname */}
                     <div className="mb-4">
                         <label className="block text-gray-700 mb-2">
@@ -92,6 +92,7 @@ export const Signup = () => {
                     </div>
 
                     <button
+                        onClick={handleSubmit}
                         disabled={loading}
                         className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
                     >
