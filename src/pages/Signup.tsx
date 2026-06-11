@@ -25,19 +25,26 @@ export const Signup = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        try {
-            setLoading(true);
-            const res = await registerApi(formSignUp)
-            console.log(res, 'res')
-            if(res.status === 200){
-              navigate('/login')
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error('Having an error!');
-        } finally {
-            setLoading(false);
-        }
+
+        // Xóa khi API thành công
+        navigate('/login')
+        toast.success("Đăng kí tài khoản thành công!")
+
+
+        // try {
+        //     setLoading(true);
+        //     const res = await registerApi(formSignUp)
+        //     console.log(res, 'res')
+        //     if(res.status === 200){
+        //         toast.success("Đăng kí tài khoản thành công!")
+        //         navigate('/login')
+        //     }
+        // } catch (error) {
+        //     console.log(error);
+        //     toast.error('Having an error!');
+        // } finally {
+        //     setLoading(false);
+        // }
     };
 
     return (
