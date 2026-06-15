@@ -2,6 +2,7 @@ import { useState } from "react";
 // import { createCabinApi, updateCabinApi, uploadCabinImageApi } from "../../services/cabin.api";
 import toast from "react-hot-toast";
 import type { Cabin, CreateCabinPayload } from "../type/cabin/Cabin.type";
+import { uploadCabinImageApi } from "../services/cabin.api";
 export default function CabinForm({
   cabin,
   onClose,
@@ -43,11 +44,12 @@ export default function CabinForm({
       const localPreview = URL.createObjectURL(file);
       setPreview(localPreview);
 
-    //   const res = await uploadCabinImageApi(file, setProgress);
-
+      const res = await uploadCabinImageApi(file, setProgress);
+      console.log(res, "res");
+      
       // update ảnh thật từ server
-    //   setPreview(res.url || res.image);
-    //   setImage(res.url)
+      setPreview(res.url || res.image);
+      setImage(res.url)
     } catch (err) {
       console.error(err);
     } finally {
